@@ -212,7 +212,7 @@ public:
         imu_pub = n.advertise<sensor_msgs::Imu>(imu_topic, 1);
 
         // Make a publisher for publishing map with obstacles
-        map_pub = n.advertise<nav_msgs::OccupancyGrid>("/map", 1);
+        map_pub = n.advertise<nav_msgs::OccupancyGrid>(map_topic, 1);
 
         // Make a publisher for ground truth pose
         pose_pub = n.advertise<geometry_msgs::PoseStamped>(gt_pose_topic, 1);
@@ -251,7 +251,7 @@ public:
         // wait for one map message to get the map data array
         boost::shared_ptr<nav_msgs::OccupancyGrid const> map_ptr;
         nav_msgs::OccupancyGrid map_msg;
-        map_ptr = ros::topic::waitForMessage<nav_msgs::OccupancyGrid>("/map");
+        map_ptr = ros::topic::waitForMessage<nav_msgs::OccupancyGrid>(map_topic);
         if (map_ptr != NULL) {
             map_msg = *map_ptr;
         }
@@ -268,7 +268,7 @@ public:
 
         // create button for clearing obstacles
         visualization_msgs::InteractiveMarker clear_obs_button;
-        clear_obs_button.header.frame_id = "map";
+        clear_obs_button.header.frame_id = map_frame;
         // clear_obs_button.pose.position.x = origin_x+(1/3)*map_width*map_resolution;
         // clear_obs_button.pose.position.y = origin_y+(1/3)*map_height*map_resolution;
         // TODO: find better positioning of buttons
