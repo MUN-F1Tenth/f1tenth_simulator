@@ -92,7 +92,7 @@ obstacle_size: 2
 # The names of topics to listen and publish to
 joy_topic: "/joy"
 drive_topic: "/drive"
-map_topic: "/map"
+map_topic: "/simulator_map"
 distance_transform_topic: "/dt"
 scan_topic: "/scan"
 pose_topic: "/pose"

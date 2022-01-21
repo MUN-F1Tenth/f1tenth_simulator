@@ -624,7 +624,7 @@ public:
 
             // publish ground truth pose
             geometry_msgs::PoseStamped ps;
-            ps.header.frame_id = "/map";
+            ps.header.frame_id = map_frame;
             ps.pose.position.x = state.x;
             ps.pose.position.y = state.y;
             ps.pose.orientation.x = quat.x();

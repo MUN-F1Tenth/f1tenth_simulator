@@ -5,7 +5,10 @@
 
   <!-- Launch a map from the maps folder-->
   <arg name="map" default="$(find f1tenth_simulator)/maps/SOCHI.yaml"/>
-  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map)"/>
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map)">
+    <remap from="map" to="simulator_map"/>
+    <remap from="map_metadata" to="simulator_map_metadata"/>
+  </node>
 
   <!-- Launch the racecar model -->
   <include file="$(find f1tenth_simulator)/launch/racecar_model.launch"/>

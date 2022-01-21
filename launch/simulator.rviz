@@ -37,8 +37,8 @@ Visualization Manager:
       Color Scheme: map
       Draw Behind: false
       Enabled: true
-      Name: Map
-      Topic: /map
+      Name: Simulator Map
+      Topic: /simulator_map
       Unreliable: false
       Use Timestamp: false
       Value: true
